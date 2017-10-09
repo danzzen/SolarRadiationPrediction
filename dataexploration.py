@@ -51,8 +51,8 @@ print("cat value coloums = ", cat_data.shape[1])
 """NUMERIC DATA EXPLORATION"""
 #correlation plot
 corr=numeric_data.corr()
-# sns.heatmap(corr)
-# sns.plt.show()
+sns.heatmap(corr)
+sns.plt.show()
 
 print (corr['Radiation'].sort_values(ascending=False), '\n') #top 15 values
 """negative ko chod do postive will impact the """
@@ -71,8 +71,8 @@ print(pivot)
     1 dot vale graph for distribution of each feature
 
 """
-# sns.jointplot(x=traindata['Temperature'],y=traindata['Radiation'])
-# sns.plt.show()
+sns.jointplot(x=traindata['Speed'],y=traindata['Radiation'])
+sns.plt.show()
 ##for each correalted variables this can be seen, Bas ek bar dekh lo smgh vese bhi kuch nhi aana
 
 """ CATEGORIAL DATA EXPLORATION"""
