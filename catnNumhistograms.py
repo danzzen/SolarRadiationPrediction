@@ -3,6 +3,7 @@ from main import traindata
 from main import pd
 from main import sns
 from main import plt
+sns.set(style="whitegrid", color_codes=True)
 #create numeric plots , bah mat bsdk
 
 num=[f for f in traindata.columns if traindata.dtypes[f]!='object']
@@ -12,8 +13,9 @@ n1 = n1.map(sns.distplot, 'value')
 sns.plt.show()
 
 #create box plots for categorials values
+
 def boxplot(x,y,**kwargs):
-            sns.boxplot(x=x,y=y)
+            sns.stripplot(x="TimeSunSet", y="Radiation", data=traindata)
             x = plt.xticks(rotation=90)
 
 cat = [f for f in traindata.columns if traindata.dtypes[f] == 'object']
@@ -21,4 +23,4 @@ cat = [f for f in traindata.columns if traindata.dtypes[f] == 'object']
 p = pd.melt(traindata, id_vars='Radiation', value_vars=cat)
 g = sns.FacetGrid (p, col='variable', col_wrap=2, sharex=False, sharey=False, size=5)
 g = g.map(boxplot, 'value','Radiation')
-# g.plt.show()
+plt.show()

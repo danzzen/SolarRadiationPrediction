@@ -71,7 +71,7 @@ print(pivot)
     1 dot vale graph for distribution of each feature
 
 """
-sns.jointplot(x=traindata['Speed'],y=traindata['Radiation'])
+sns.jointplot(x=traindata['Pressure'],y=traindata['Radiation'])
 sns.plt.show()
 ##for each correalted variables this can be seen, Bas ek bar dekh lo smgh vese bhi kuch nhi aana
 

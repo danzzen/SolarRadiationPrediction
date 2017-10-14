@@ -35,7 +35,7 @@ except:
 try:
     import seaborn as sns
 except:
-    print("bsdk bhut bol liya phle saare install kar")
+    print("bsdk bhut bol liya phle saare import kar")
 
 ####sk.learn kahne ko coder project karta h but bc sara kam to ye library kati h
 import sklearn
