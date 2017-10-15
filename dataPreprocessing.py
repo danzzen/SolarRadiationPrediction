@@ -59,6 +59,7 @@ testdata1.drop(drop_cols,axis=1,inplace=True)
 numeric_features = [f for f in traindata1.columns if traindata1[f].dtype != object]
 
 #transform the numeric features using log(x + 1)
+
 from scipy.stats import skew
 skewed = traindata1[numeric_features].apply(lambda x: skew(x.dropna().astype(float)))
 skewed = skewed[skewed > 0.75]
@@ -66,6 +67,7 @@ skewed = skewed.index
 traindata1[skewed] = np.log1p(traindata1[skewed])
 testdata1[skewed] = np.log1p(testdata1[skewed])
 
+"""
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaler.fit(traindata1[numeric_features])
@@ -79,3 +81,5 @@ scaled = scaler.fit_transform(testdata1[numeric_features])
 
 for i, col in enumerate(numeric_features):
       testdata1[col] = scaled[:,i]
+
+"""

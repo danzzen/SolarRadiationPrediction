@@ -22,13 +22,15 @@ def rmse(y_test,y_pred):
 y_pred = regr.predict(traindata1)
 y_test = label_df
 # from sklearn.metrics import accuracy_score
-# print(accuracy_score(y_test, y_pred))
+# print(accuracy_score(y_test['Radiation'], y_pred))
 #
 
 print("Lasso score on training set: ", rmse(y_test, y_pred))
-y_test=testdata1['Radiation']
+label_df=pd.DataFrame(index=testdata1.index,columns=['Radiation'])
+label_df['Radiation']=testdata1['Radiation']
+y_test=label_df
 testdata1.drop("Radiation",axis=1,inplace=True)
 y_pred=regr.predict(testdata1)
-
+print(y_pred,label_df['Radiation'])
 print("Lasso score on training set: ", rmse(y_test, y_pred))
 
